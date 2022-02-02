@@ -1,19 +1,16 @@
-# import requests
+import requests
 
+response = requests.get("https://randomuser.me/api/")
+response.text
 
+# from http.server import BaseHTTPRequestHandler
+# from datetime import datetime
 
-# import requests
-# response = requests.get("https://randomuser.me/api/")
-# response.text
+# class handler(BaseHTTPRequestHandler):
 
-from http.server import BaseHTTPRequestHandler
-from datetime import datetime
-
-class handler(BaseHTTPRequestHandler):
-
-  def do_GET(self):
-    self.send_response(200)
-    self.send_header('Content-type', 'text/plain')
-    self.end_headers()
-    self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
-    return
+#   def do_GET(self):
+#     self.send_response(200)
+#     self.send_header('Content-type', 'text/plain')
+#     self.end_headers()
+#     self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
+#     return

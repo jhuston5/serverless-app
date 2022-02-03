@@ -14,7 +14,7 @@ class handler(BaseHTTPRequestHandler):
     
     random_person = randint(0, 82) 
     url = 'https://swapi.dev/api/'
-    r = requests.get(url + "/people/")
+    r = requests.get(url + "/people/" + '1')
     data = r.json()
     
     # sw_collection = []

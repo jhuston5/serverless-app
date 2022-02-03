@@ -1,8 +1,6 @@
 import requests
-
-response = requests.get("https://randomuser.me/api/")
+response = requests.get("https://api.thedogapi.com/")
 response.text
-
 # from http.server import BaseHTTPRequestHandler
 # from datetime import datetime
 

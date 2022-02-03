@@ -14,19 +14,16 @@ class handler(BaseHTTPRequestHandler):
     r = requests.get(url)
     data = r.json()
     
+    sw_collection = []
+    for sw in data:
+          sw_val = sw
+          sw_collection.append(sw_val)
+    message = str(sw_collection)        
 
     # if "term" in dic:
     #   url = 'https://swapi.dev/api/'
     #   r = requests.get(url + dic['term'])
     #   data = r.json()
-    #   sw_collection = []
-    #   for sw in data:
-    #         definition = sw
-    #         sw_collection.append(definition)
-    
-
-
-    message = str(dic)        
     # else:
     #     message = "Please give me people, planets, films, species, vehicles, or starships to render"
 
@@ -37,3 +34,6 @@ class handler(BaseHTTPRequestHandler):
     self.wfile.write(message.encode())
 
     return
+
+
+    # {'people': 'https://swapi.dev/api/people/', 'planets': 'https://swapi.dev/api/planets/', 'films': 'https://swapi.dev/api/films/', 'species': 'https://swapi.dev/api/species/', 'vehicles': 'https://swapi.dev/api/vehicles/', 'starships': 'https://swapi.dev/api/starships/'}

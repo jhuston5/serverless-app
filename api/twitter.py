@@ -23,11 +23,13 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 # public_tweets = api.home_timeline()
-cursor = tweepy.Cursor(api.user_timeline, id='realDonaldTrump').items(1)
+cursor = tweepy.Cursor(api.user_timeline, id='lexfridman').items(1)
 print(cursor)
 for i in cursor:
   print(i)
 # print(public_tweets)
+
+# /usr/local/etc/ca-certificates/cert.pem
 
 # from http.server import BaseHTTPRequestHandler
 # from urllib import parse

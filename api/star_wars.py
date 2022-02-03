@@ -8,16 +8,22 @@ class handler(BaseHTTPRequestHandler):
     url_path = self.path
     url_components = parse.urlsplit(url_path)
     query_string_list = parse.parse_qsl(url_components.query)
-    # dic = dict(query_string_list)
+    dic = dict(query_string_list)
 
-    url = 'https://swapi.dev/api/'
-    r = requests.get(url)
-    data = r.json()
-    definitions = []
+    if "term" in dic:
+      url = 'https://swapi.dev/api/'
+      r = requests.get(url + dic['term'])
+      data = r.json()
+      sw_collection = []
+      for sw in data:
+            definition = sw
+            sw_collection.append(definition)
+    
 
-    message = str(data)        
-    # else:
-    #     message = "Please give me a word to define"
+
+      message = str(sw_collection)        
+    else:
+        message = "Please give me people, planets, films, species, vehicles, or starships to render"
 
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')

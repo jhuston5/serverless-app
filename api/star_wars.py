@@ -11,16 +11,16 @@ class handler(BaseHTTPRequestHandler):
     dic = dict(query_string_list)
     
     url = 'https://swapi.dev/api/'
-    r = requests.get(url)
+    r = requests.get(url + "/films")
     data = r.json()
     
-    sw_collection = []
-    for sw in data:
-          sw_val = sw
-          sw_collection.append(sw_val)
+    # sw_collection = []
+    # for sw in data:
+    #       sw_val = sw
+    #       sw_collection.append(sw_val)
     
-    sw_search = requests.get(f"{url}/{sw_collection[0]}/1")
-    message = str(sw_search)        
+    # sw_search = requests.get(f"{url}/{sw_collection[0]}/1")
+    message = str(data)        
 
     # if "term" in dic:
     #   url = 'https://swapi.dev/api/'

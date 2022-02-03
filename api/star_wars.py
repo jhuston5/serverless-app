@@ -1,6 +1,8 @@
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import requests
+import random
+from random import randint
 
 class handler(BaseHTTPRequestHandler):
 
@@ -10,8 +12,9 @@ class handler(BaseHTTPRequestHandler):
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
     
+    random_person = randint(0, 82) 
     url = 'https://swapi.dev/api/'
-    r = requests.get(url + "/films")
+    r = requests.get(url + "/people/" + random_person)
     data = r.json()
     
     # sw_collection = []

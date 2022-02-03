@@ -26,7 +26,7 @@ class handler(BaseHTTPRequestHandler):
     
 
 
-    message = str(data)        
+    message = str(dic)        
     # else:
     #     message = "Please give me people, planets, films, species, vehicles, or starships to render"
 

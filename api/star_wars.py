@@ -12,9 +12,9 @@ class handler(BaseHTTPRequestHandler):
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
     
-    random_person = randint(0, 82) 
+    random_person = str(randint(0, 82)) 
     url = 'https://swapi.dev/api/'
-    r = requests.get(url + "/people/" + '1')
+    r = requests.get(url + "/people/" + random_person)
     data = r.json()
     
     # sw_collection = []

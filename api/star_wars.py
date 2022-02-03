@@ -9,25 +9,26 @@ class handler(BaseHTTPRequestHandler):
     url_components = parse.urlsplit(url_path)
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
-    print("dic")
+    
     url = 'https://swapi.dev/api/'
     r = requests.get(url)
     data = r.json()
-    message = str(data)  
-    if "term" in dic:
-      url = 'https://swapi.dev/api/'
-      r = requests.get(url + dic['term'])
-      data = r.json()
-      sw_collection = []
-      for sw in data:
-            definition = sw
-            sw_collection.append(definition)
+    
+
+    # if "term" in dic:
+    #   url = 'https://swapi.dev/api/'
+    #   r = requests.get(url + dic['term'])
+    #   data = r.json()
+    #   sw_collection = []
+    #   for sw in data:
+    #         definition = sw
+    #         sw_collection.append(definition)
     
 
 
-      message = str(data)        
-    else:
-        message = "Please give me people, planets, films, species, vehicles, or starships to render"
+    message = str(data, dic)        
+    # else:
+    #     message = "Please give me people, planets, films, species, vehicles, or starships to render"
 
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')

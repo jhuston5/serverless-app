@@ -11,7 +11,7 @@ class handler(BaseHTTPRequestHandler):
     dic = dict(query_string_list)
     print("dic")
     url = 'https://swapi.dev/api/'
-    r = requests.get(url + dic['term'])
+    r = requests.get(url)
     data = r.json()
     message = str(data)  
     if "term" in dic:

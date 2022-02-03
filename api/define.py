@@ -14,13 +14,13 @@ class handler(BaseHTTPRequestHandler):
         url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
         r = requests.get(url + dic['word'])
         data = r.json()
-        sw_collection = []
-        for sw_data in data:
-            definition = sw_data
-            sw_collection.append(definition)
-        message = str(sw_collection)        
+        definitions = []
+        for word_data in data:
+            definition = word_data["meanings"][0]["definitions"][0]["definition"]
+            definitions.append(definition)
+        message = str(definitions)        
     else:
-        message = "Please give me people, planets, films, species, vehicles, or starships to render"
+        message = "Please give me a word to define"
 
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')

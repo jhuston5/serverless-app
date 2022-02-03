@@ -18,7 +18,9 @@ class handler(BaseHTTPRequestHandler):
     for sw in data:
           sw_val = sw
           sw_collection.append(sw_val)
-    message = str(sw_collection)        
+    
+    sw_search = requests.get(f"{url}/{sw_collection[0]}")
+    message = str(sw_search)        
 
     # if "term" in dic:
     #   url = 'https://swapi.dev/api/'

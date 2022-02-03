@@ -19,7 +19,7 @@ class handler(BaseHTTPRequestHandler):
           sw_val = sw
           sw_collection.append(sw_val)
     
-    sw_search = requests.get(f"{url}/{sw_collection[0]}")
+    sw_search = requests.get(f"{url}/{sw_collection[0]}/1")
     message = str(sw_search)        
 
     # if "term" in dic:

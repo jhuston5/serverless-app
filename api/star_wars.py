@@ -12,25 +12,13 @@ class handler(BaseHTTPRequestHandler):
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
     
+    # Generate a way to build a random character
     random_person = str(randint(0, 82)) 
     url = 'https://swapi.dev/api/'
     r = requests.get(url + "/people/" + random_person)
     data = r.json()
-    
-    # sw_collection = []
-    # for sw in data:
-    #       sw_val = sw
-    #       sw_collection.append(sw_val)
-    
-    # sw_search = requests.get(f"{url}/{sw_collection[0]}/1")
-    message = str(data)        
 
-    # if "term" in dic:
-    #   url = 'https://swapi.dev/api/'
-    #   r = requests.get(url + dic['term'])
-    #   data = r.json()
-    # else:
-    #     message = "Please give me people, planets, films, species, vehicles, or starships to render"
+    message = str(data)        
 
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
